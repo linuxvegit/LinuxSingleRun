@@ -7,5 +7,5 @@ PID=$(ps ax | grep -v "$(basename $0) \+$1" | grep -v grep | grep "$PROGRAM" | g
 if [ -z "$PID" ]; then
     $PROGRAM 
 else
-    wmctrl -i -a $(wmctrl -l -p | awk '/^[^ ]+ +[^ ]+ +'"$PID"'/ {print $PID}')
+    wmctrl -i -R $(wmctrl -l -p | awk '/^[^ ]+ +[^ ]+ +'"$PID"'/ {print $PID}')
 fi
